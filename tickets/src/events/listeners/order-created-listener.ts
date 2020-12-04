@@ -1,5 +1,5 @@
 import { Message } from 'node-nats-streaming';
-import { Listener, OrderCreatedEvent, Subjects } from '@sgtickets/common';
+import { Listener, OrderCreatedEvent, Subjects } from '@vk_tickets/common';
 import { queueGroupName } from './queue-group-name';
 import { Ticket } from '../../models/ticket';
 import { TicketUpdatedPublisher } from '../publishers/ticket-updated-publisher';
@@ -28,7 +28,7 @@ export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
       title: ticket.title,
       userId: ticket.userId,
       orderId: ticket.orderId,
-      version: ticket.version,
+      version: ticket.version
     });
 
     // ack the message

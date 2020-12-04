@@ -2,8 +2,8 @@ import {
   Subjects,
   Listener,
   PaymentCreatedEvent,
-  OrderStatus,
-} from '@sgtickets/common';
+  OrderStatus
+} from '@vk_tickets/common';
 import { Message } from 'node-nats-streaming';
 import { queueGroupName } from './queue-group-name';
 import { Order } from '../../models/order';
@@ -20,7 +20,7 @@ export class PaymentCreatedListener extends Listener<PaymentCreatedEvent> {
     }
 
     order.set({
-      status: OrderStatus.Complete,
+      status: OrderStatus.Complete
     });
     await order.save();
 

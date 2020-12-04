@@ -2,8 +2,8 @@ import express, { Request, Response } from 'express';
 import {
   requireAuth,
   NotFoundError,
-  NotAuthorizedError,
-} from '@sgtickets/common';
+  NotAuthorizedError
+} from '@vk_tickets/common';
 import { Order } from '../models/order';
 
 const router = express.Router();

@@ -1,5 +1,5 @@
 import { Message } from 'node-nats-streaming';
-import { Listener, OrderCreatedEvent, Subjects } from '@sgtickets/common';
+import { Listener, OrderCreatedEvent, Subjects } from '@vk_tickets/common';
 import { queueGroupName } from './queue-group-name';
 import { Order } from '../../models/order';
 
@@ -13,7 +13,7 @@ export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
       price: data.ticket.price,
       status: data.status,
       userId: data.userId,
-      version: data.version,
+      version: data.version
     });
     await order.save();
 

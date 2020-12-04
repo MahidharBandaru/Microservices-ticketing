@@ -1,6 +1,6 @@
 import { Message } from 'node-nats-streaming';
 import mongoose from 'mongoose';
-import { OrderCreatedEvent, OrderStatus } from '@sgtickets/common';
+import { OrderCreatedEvent, OrderStatus } from '@vk_tickets/common';
 import { OrderCreatedListener } from '../order-created-listener';
 import { natsWrapper } from '../../../nats-wrapper';
 import { Ticket } from '../../../models/ticket';
@@ -13,7 +13,7 @@ const setup = async () => {
   const ticket = Ticket.build({
     title: 'concert',
     price: 99,
-    userId: 'asdf',
+    userId: 'asdf'
   });
   await ticket.save();
 
@@ -26,13 +26,13 @@ const setup = async () => {
     expiresAt: 'alskdjf',
     ticket: {
       id: ticket.id,
-      price: ticket.price,
-    },
+      price: ticket.price
+    }
   };
 
   // @ts-ignore
   const msg: Message = {
-    ack: jest.fn(),
+    ack: jest.fn()
   };
 
   return { listener, ticket, data, msg };

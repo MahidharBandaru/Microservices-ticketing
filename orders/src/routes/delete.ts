@@ -2,8 +2,8 @@ import express, { Request, Response } from 'express';
 import {
   requireAuth,
   NotFoundError,
-  NotAuthorizedError,
-} from '@sgtickets/common';
+  NotAuthorizedError
+} from '@vk_tickets/common';
 import { Order, OrderStatus } from '../models/order';
 import { OrderCancelledPublisher } from '../events/publishers/order-cancelled-publisher';
 import { natsWrapper } from '../nats-wrapper';
@@ -32,8 +32,8 @@ router.delete(
       id: order.id,
       version: order.version,
       ticket: {
-        id: order.ticket.id,
-      },
+        id: order.ticket.id
+      }
     });
 
     res.status(204).send(order);
