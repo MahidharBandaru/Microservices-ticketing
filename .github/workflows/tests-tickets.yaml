@@ -1,6 +1,8 @@
 name: tests-tickets
 on:
   pull_request:
+    paths:
+      - 'tockets/**'
 jobs:
   build:
     runs-on: ubuntu-latest
