@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { updateIfCurrentPlugin } from 'mongoose-update-if-current';
-import { OrderStatus } from '@sgtickets/common';
+import { OrderStatus } from '@vk_tickets/common';
 import { TicketDoc } from './ticket';
 
 export { OrderStatus };
@@ -28,29 +28,29 @@ const orderSchema = new mongoose.Schema(
   {
     userId: {
       type: String,
-      required: true,
+      required: true
     },
     status: {
       type: String,
       required: true,
       enum: Object.values(OrderStatus),
-      default: OrderStatus.Created,
+      default: OrderStatus.Created
     },
     expiresAt: {
-      type: mongoose.Schema.Types.Date,
+      type: mongoose.Schema.Types.Date
     },
     ticket: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Ticket',
-    },
+      ref: 'Ticket'
+    }
   },
   {
     toJSON: {
       transform(doc, ret) {
         ret.id = ret._id;
         delete ret._id;
-      },
-    },
+      }
+    }
   }
 );
 

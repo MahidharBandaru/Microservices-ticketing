@@ -1,4 +1,4 @@
-import { Listener, OrderCancelledEvent, Subjects } from '@sgtickets/common';
+import { Listener, OrderCancelledEvent, Subjects } from '@vk_tickets/common';
 import { Message } from 'node-nats-streaming';
 import { queueGroupName } from './queue-group-name';
 import { Ticket } from '../../models/ticket';
@@ -23,7 +23,7 @@ export class OrderCancelledListener extends Listener<OrderCancelledEvent> {
       userId: ticket.userId,
       price: ticket.price,
       title: ticket.title,
-      version: ticket.version,
+      version: ticket.version
     });
 
     msg.ack();

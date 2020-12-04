@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { Message } from 'node-nats-streaming';
-import { OrderCreatedEvent, OrderStatus } from '@sgtickets/common';
+import { OrderCreatedEvent, OrderStatus } from '@vk_tickets/common';
 import { natsWrapper } from '../../../nats-wrapper';
 import { OrderCreatedListener } from '../order-created-listener';
 import { Order } from '../../../models/order';
@@ -16,13 +16,13 @@ const setup = async () => {
     status: OrderStatus.Created,
     ticket: {
       id: 'alskdfj',
-      price: 10,
-    },
+      price: 10
+    }
   };
 
   // @ts-ignore
   const msg: Message = {
-    ack: jest.fn(),
+    ack: jest.fn()
   };
 
   return { listener, data, msg };

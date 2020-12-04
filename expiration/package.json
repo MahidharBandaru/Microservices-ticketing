@@ -18,8 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sgtickets/common": "^1.0.23",
     "@types/bull": "^3.12.2",
+    "@vk_tickets/common": "^1.0.13",
     "bull": "^3.13.0",
     "node-nats-streaming": "^0.2.6",
     "ts-node-dev": "^1.0.0-pre.44",
